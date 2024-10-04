@@ -5,5 +5,4 @@
     {"title": "Learn to Program Using Python", "ebook_count": 1}, 
     {"title": "Aprendendo Python", "ebook_count": 1}, 
     {"title": "Python Basics", "ebook_count": 1}
-    
 ]
