@@ -1,4 +1,4 @@
-#!"C:\Users\kenny\SWEN 352\activity-2\virtualenv\Scripts\python.exe"
+#!D:\Files\School\352\activity-2\virtualenv\Scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'coverage==4.5.2','console_scripts','coverage'
 import re
 import sys

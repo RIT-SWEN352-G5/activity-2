@@ -31,11 +31,15 @@ class TestLibrary(unittest.TestCase):
         self.ext.api.make_request = Mock(return_value =None)
         self.assertEqual(self.ext.make_request("http://GrunkleStunklewinstheFunkleBunkle"), None)
 
+    def test_make_request_error(self):
+        self.ext.api.make_request = Mock(return_value =None)
+        self.assertEqual(self.ext.make_request("https://httpstat.us/400"), None)
+
     def test_book_is_available(self):
         self.ext.api.is_book_available = Mock(return_value =True )
         self.assertEqual(self.ext.is_book_available("learning python"),True)
     
-    def test_book_is_not_avaialbe(self):
+    def test_book_is_not_available(self):
         self.ext.api.is_book_available = Mock(return_value =False )
         self.assertEqual(self.ext.is_book_available("Grunkle Stunkle Wins the Funkle Bunkle"),False)
     
