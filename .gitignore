@@ -1,5 +1,5 @@
-__pycache__/
-htmlcov/
-virtualenv/
-.coverage
+*/__pycache__/
+*/*/__pycache__/
 __MACOSX/
+virtualenv/
+htmlcov/
