@@ -12,7 +12,7 @@ class TestLibrary(unittest.TestCase):
         
         self.lib.db = Mock(name = "mock_db")
         
-        with open('tests_data/ebooks.txt', 'r') as f:
+        with open('tests_data/ebooks2.txt', 'r') as f:
             self.books_data = json.loads(f.read())
 
     def test_is_ebook_true(self):
