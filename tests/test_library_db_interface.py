@@ -20,7 +20,7 @@ class TestLibrary_DB(unittest.TestCase):
         """Backs up the database before clearing it for testing"""
         with open('db.json', 'r') as db_file, open('_db_backup.json', 'w') as backup:
             db = db_file.read()
-            print(db)
+            # print(db)
             backup.write(db)
         with open('db.json', 'w') as db_file:
             db_file.write('{"_default": {}}')
@@ -30,7 +30,7 @@ class TestLibrary_DB(unittest.TestCase):
         """Restores the database from the backup created at setup"""
         with open('db.json', 'w') as db_file, open('_db_backup.json', 'r') as backup:
             bk = backup.read()
-            print(bk)
+            # print(bk)
             db_file.write(bk)
         os.remove('_db_backup.json')
 
@@ -38,6 +38,10 @@ class TestLibrary_DB(unittest.TestCase):
         with open('db.json', 'w') as db_file:
             db_file.write('{"_default": {"1": {"fname": "f_existing", "lname": "l_existing", "age": 1, "memberID": 1, "borrowed_books": ["book"]}}}')
         self.dbi = library_db_interface.Library_DB()
+
+    def tearDown(self):
+        self.dbi.close_db()
+        return super().tearDown()
 
     def test_insert_patron(self):
         mock_patron = make_mock_patron(age=20, id=2, borrowed=["book2"])

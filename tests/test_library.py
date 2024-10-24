@@ -1,19 +1,25 @@
 import unittest
 from unittest.mock import Mock
-from library import library, library_db_interface
+from library import library, library_db_interface, patron
 import json
 
 
-class TestLibrary(unittest.TestCase):
 
+class TestLibrary(unittest.TestCase):
+    
     def setUp(self):
         self.lib = library.Library()
-        self.lib.api = Mock(name="mock_api")
+
+        self.assertIsNotNone(self.lib.api)
+        self.assertIsNotNone(self.lib.db)
         
+        self.lib.api = Mock(name="mock_api")
+
         self.lib.db = Mock(name = "mock_db")
         
         with open('tests_data/ebooks2.txt', 'r') as f:
             self.books_data = json.loads(f.read())
+        
 
     def test_is_ebook_true(self):
         self.lib.api.get_ebooks = Mock(return_value = self.books_data)
@@ -99,7 +105,7 @@ class TestLibrary(unittest.TestCase):
 
         self.assertEqual(self.lib.register_patron('ash', 'f', 21, 12), 12)
 
-        self.lib.db.insert_patron.assert_called()
+        self.lib.db.insert_patron.assert_called_with(patron.Patron('ash', 'f', 21, 12))
         
     def test_is_patron_registered_true(self):
         testPatron = Mock(name = "testPatron")
