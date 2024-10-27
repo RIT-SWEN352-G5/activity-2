@@ -33,8 +33,8 @@ class TestLibrary(unittest.TestCase):
         self.assertEqual(self.ext.make_request("https://httpstat.us/400"), None)
 
     def test_book_is_available(self):
-        self.ext.api.is_book_available = Mock(return_value ={"docs": [{"title": "test"}]} )
-        self.assertEqual(self.ext.is_book_available("learning python"),True)
+        self.ext.make_request = Mock(return_value ={"docs": [{"title": "test"}]} )
+        self.assertEqual(True, self.ext.is_book_available("learning python"))
     
     def test_book_is_not_available(self):
         self.ext.make_request = Mock(name="mockfn_make_request", return_value ={"docs": []} )
@@ -44,6 +44,7 @@ class TestLibrary(unittest.TestCase):
         self.ext.make_request = Mock(name="mockfn_make_request", return_value =self.books_by_author)
         expected = [book["title_suggest"] for book in self.books_by_author['docs']]
         self.assertEqual(expected, self.ext.books_by_author('George RR Martin'))
+        self.ext.make_request.assert_called_with("http://openlibrary.org/search.json?author=George RR Martin")
 
     def test_get_books_by_author_invalid_author(self):
         self.ext.make_request = Mock(name="mockfn_make_request", return_value ={"docs": []} )
@@ -52,6 +53,7 @@ class TestLibrary(unittest.TestCase):
     def test_get_book_info_from_valid_book(self):
         self.ext.make_request = Mock(name="mockfn_make_request", return_value =self.book_info)
         self.assertEqual(self.book_info['docs'], self.ext.get_book_info("Nathan Hale's Hazardous Tales: Major Impossible"))
+        self.ext.make_request.assert_called_with("http://openlibrary.org/search.json?q=Nathan Hale's Hazardous Tales: Major Impossible")
     
     def test_get_book_info_from_invalid_book(self):
         self.ext.make_request = Mock(name="mockfn_make_request", return_value ={"docs": []})

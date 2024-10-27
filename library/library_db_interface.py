@@ -10,7 +10,8 @@ import os
 class Library_DB:
     """Class for the local library database."""
 
-    DATABASE_FILE = 'db.json'
+    # DATABASE_FILE = 'db.json'
+    DATABASE_FILE = None
 
     def __init__(self):
         """Constructor for the Library_DB object."""
