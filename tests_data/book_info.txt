@@ -1,1 +1,4 @@
-[{'title': "Nathan Hale's Hazardous Tales", 'publisher': ['Harry N. Abrams', 'Abram books'], 'publish_year': [2019]}, {'title': "Major Impossible (Nathan Hale's Hazardous Tales #9)", 'publisher': ['Abrams, Inc.'], 'publish_year': [2019], 'language': ['eng']}]
+{"docs":[
+    {"title": "Nathan Hale's Hazardous Tales", "publisher": ["Harry N. Abrams", "Abram books"], "publish_year": [2019]}, 
+    {"title": "Major Impossible (Nathan Hale's Hazardous Tales #9)", "publisher": ["Abrams, Inc."], "publish_year": [2019], "language": ["eng"]}
+]}

@@ -1,1 +1,1 @@
-['A Clash of Kings', 'JUEGO DE TRONOS - CANCION DE HIELO Y FUEGO', 'DreamSongs 2']
+{"docs":[{"title_suggest": "A Clash of Kings"}, {"title_suggest": "JUEGO DE TRONOS - CANCION DE HIELO Y FUEGO"}, {"title_suggest": "DreamSongs 2"}]}
