@@ -3,8 +3,6 @@ from unittest.mock import Mock
 from library import library, library_db_interface, patron
 import json
 
-
-
 class TestLibrary(unittest.TestCase):
     
     def setUp(self):
@@ -12,9 +10,9 @@ class TestLibrary(unittest.TestCase):
 
         self.assertIsNotNone(self.lib.api)
         self.assertIsNotNone(self.lib.db)
-        
-        self.lib.api = Mock(name="mock_api")
 
+        self.lib.db.close_db()
+        self.lib.api = Mock(name="mock_api")
         self.lib.db = Mock(name = "mock_db")
         
         with open('tests_data/ebooks2.txt', 'r') as f:

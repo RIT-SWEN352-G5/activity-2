@@ -21,7 +21,6 @@ class TestLibrary(unittest.TestCase):
         with open('tests_data/ebooks.txt', 'r') as f:
             self.ebooks = json.loads(f.read())
         f.close()
-        
 
     # def test_make_request_success(self):
     #     self.ext.api.make_request = Mock(return_value =self.mock_data )
