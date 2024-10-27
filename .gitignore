@@ -2,5 +2,5 @@ myvenv/
 */__pycache__/
 */*/__pycache__/
 __MACOSX/
-virtualenv/
+virtualenv
 htmlcov/
