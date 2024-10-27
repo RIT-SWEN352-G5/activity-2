@@ -39,6 +39,8 @@ class TestLibrary_DB(unittest.TestCase):
             db_file.write('{"_default": {"1": {"fname": "f_existing", "lname": "l_existing", "age": 1, "memberID": 1, "borrowed_books": ["book"]}}}')
         self.dbi = library_db_interface.Library_DB()
 
+        self.assertIsNotNone(self.dbi)
+
     def tearDown(self):
         self.dbi.close_db()
         return super().tearDown()
